@@ -1,15 +1,25 @@
 package com.example.testdriven.applikation.med.CI;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Product {
 
-    Integer id;
-    String name;
-    String info;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String name;
+    private String info;
 
-    public Product(String name, String info, int id) {
+    public Product(){}
+
+    public Product(String name, String info) {
         this.name = name;
         this.info = info;
-        this.id = id;
+
     }
 
     public Integer getId() {
