@@ -11,16 +11,15 @@ import java.util.List;
 public class OrderController {
 
     @Autowired
-    private OrderRepository orderRepository;
+    private OrderService orderService;
 
     @GetMapping
     public List<Order> getAllOrders(){
-        return orderRepository.findAll();
+        return orderService.getAllOrders();
     }
 
     @PostMapping
     public Order createOrder(@RequestBody Order order){
-        order.setOrderDate(new Date());
-        return orderRepository.save(order);
+        return orderService.createOrder(order);
     }
 }
