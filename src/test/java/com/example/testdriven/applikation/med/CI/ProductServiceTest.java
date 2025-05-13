@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -49,5 +50,21 @@ class ProductServiceTest {
         verify(productRepository).findAll();
     }
 
+    @Test
+    void checkingAProductExsistsWhenCallingGetProductById(){
+        Product product = new Product("sten","info om sten");
+        when(productRepository.findById(1)).thenReturn(Optional.of(product));
 
+        Product result = productService.getProductById(1);
+
+        assertEquals("sten",result.getName());
+        verify(productRepository).findById(1);
+    }
+
+    @Test
+    void checksGetProductByIdThrowsExcepionWhenProductNotFound(){
+        when(productRepository.findById(2)).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class,()-> productService.getProductById(2));
+    }
 }
