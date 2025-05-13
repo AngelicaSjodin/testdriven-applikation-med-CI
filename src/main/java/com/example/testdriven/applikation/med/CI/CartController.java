@@ -10,15 +10,15 @@ import java.util.List;
 public class CartController {
 
     @Autowired
-    private CartRepository cartRepository;
+    private CartService cartService;
 
     @GetMapping
     public List<Cart> getAllCarts(){
-        return cartRepository.findAll();
+        return cartService.getAllCarts();
     }
 
     @PostMapping
     public Cart createCart(@RequestBody Cart cart){
-        return cartRepository.save(cart);
+        return cartService.createCart(cart);
     }
 }
