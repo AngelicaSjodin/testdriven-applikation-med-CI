@@ -10,20 +10,15 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private ProductRepository repository;
+    private ProductService productService;
+
+    @GetMapping
+    public Product createProduct(@RequestBody Product product){
+        return productService.createProduct(product);
+    }
 
     @GetMapping
     public List<Product> getAllProducts(){
-        return repository.findAll();
-    }
-
-    @PostMapping
-    public Product createProduct(@RequestBody Product product){
-        return repository.save(product);
-    }
-
-    @GetMapping("/{id")
-    public Product getProductById(@PathVariable Integer id){
-        return repository.findById(id).orElse(null);
+        return productService.getAllProducts();
     }
 }
