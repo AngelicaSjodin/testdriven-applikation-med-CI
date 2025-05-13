@@ -22,7 +22,7 @@ public class ProductController {
         return repository.save(product);
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public Product getProductById(@PathVariable Integer id){
         return repository.findById(id).orElse(null);
     }

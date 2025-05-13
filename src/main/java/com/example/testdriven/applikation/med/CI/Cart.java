@@ -14,6 +14,8 @@ public class Cart {
     @ManyToMany
     private List<Product> products;
 
+    public Cart(){}
+
     public Cart(Integer id, List<Product> products) {
         this.id = id;
         this.products = products;
