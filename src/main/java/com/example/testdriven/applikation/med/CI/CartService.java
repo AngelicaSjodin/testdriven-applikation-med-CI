@@ -10,7 +10,7 @@ public class CartService {
 
 
     @Autowired
-    private CartRepository cartRepository;
+    CartRepository cartRepository;
 
     public List<Cart> getAllCarts(){
         return cartRepository.findAll();
