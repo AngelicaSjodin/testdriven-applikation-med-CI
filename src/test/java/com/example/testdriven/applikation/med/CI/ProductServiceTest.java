@@ -20,6 +20,8 @@ class ProductServiceTest {
         productService = new ProductService(productRepository);
     }
 
+    //unit tests
+
     @Test
     void testCreateProductReturnsTheRightValue(){
         //arrange

@@ -10,7 +10,7 @@ import java.util.List;
 public class OrderService {
 
     @Autowired
-    private OrderRepository orderRepository;
+    OrderRepository orderRepository;
 
     public List<Order> getAllOrders(){
         return orderRepository.findAll();
