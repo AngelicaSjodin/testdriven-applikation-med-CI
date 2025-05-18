@@ -64,7 +64,7 @@ class ProductServiceTest {
     }
 
     @Test
-    void checksGetProductByIdThrowsExcepionWhenProductNotFound(){
+    void checksGetProductByIdThrowsExceptionWhenProductNotFound(){
         when(productRepository.findById(2)).thenReturn(Optional.empty());
 
         assertThrows(RuntimeException.class,()-> productService.getProductById(2));

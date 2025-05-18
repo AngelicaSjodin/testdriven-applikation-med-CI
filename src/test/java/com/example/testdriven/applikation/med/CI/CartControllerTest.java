@@ -28,7 +28,7 @@ class CartControllerTest {
 
     //component test
     @Test
-    void testCreateAndGetCart() throws Exception {
+    void testPostAndGetCart() throws Exception {
         // Arrange
         Cart cart = new Cart();
 
